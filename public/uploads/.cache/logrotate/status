@@ -1,0 +1,15 @@
+logrotate state -- version 2
+"/var/www/sante_ftp_folder/public/uploads/.cache/upstart/dbus.log" 2022-1-21-7:35:2
+"/var/www/sante_ftp_folder/public/uploads/.cache/upstart/window-stack-bridge.log" 2022-1-21-7:35:2
+"/var/www/sante_ftp_folder/public/uploads/.cache/upstart/bamfdaemon.log" 2022-1-21-7:35:2
+"/var/www/sante_ftp_folder/public/uploads/.cache/upstart/unity-settings-daemon.log" 2022-1-21-7:35:2
+"/var/www/sante_ftp_folder/public/uploads/.cache/upstart/hud.log" 2022-1-21-7:35:2
+"/var/www/sante_ftp_folder/public/uploads/.cache/upstart/at-spi2-registryd.log" 2022-1-21-7:35:2
+"/var/www/sante_ftp_folder/public/uploads/.cache/upstart/upstart-event-bridge.log" 2022-1-21-7:35:2
+"/var/www/sante_ftp_folder/public/uploads/.cache/upstart/unity-panel-service.log" 2022-1-21-7:35:2
+"/var/www/sante_ftp_folder/public/uploads/.cache/upstart/ssh-agent.log" 2022-1-21-7:35:2
+"/var/www/sante_ftp_folder/public/uploads/.cache/upstart/gnome-keyring-ssh.log" 2022-1-21-7:35:2
+"/var/www/sante_ftp_folder/public/uploads/.cache/upstart/indicator-sound.log" 2022-1-21-7:35:2
+"/var/www/sante_ftp_folder/public/uploads/.cache/upstart/unity7.log" 2022-1-21-7:35:2
+"/var/www/sante_ftp_folder/public/uploads/.cache/upstart/gpg-agent.log" 2022-1-21-7:35:2
+"/var/www/sante_ftp_folder/public/uploads/.cache/upstart/update-notifier-release.log" 2022-1-21-7:35:2
