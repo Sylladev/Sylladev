@@ -72,15 +72,15 @@ class editionController extends Controller
             $relation = $request->input('relation');
             $Nrelation = $request->input('nomRelation');
             $telR = $request->input('telephoneRelation');
-            $flagtransmis=$request->input('flagtransmis');
+            $flagTransmis=$request->input('flagTransmis');
 
         $pat= DB::select("select idAddresse from patient where idPatient=?  ",[$idPatient]);
         $addresse=$pat[0]->idAddresse;
 
-        DB::update('update patient set nomPatient = ? ,prenomPatient = ?,numeroIdentitePatient = ? ,uidPatient = ?,statusMatrimonialPatient= ?, dateNaissancePatient = ?, flagtransmis= ? where idPatient = ?',[$nom,$prenom,$numero,$uid,$statut,$date,$flagtransmis,$idPatient]);
-        DB::update('update addresse set premiereAddresse = ?,  idCommune= ?, flagtransmis=? where  idAddresse = ? ',[$adr,$commune,$flagtransmis,$addresse]);
-        DB::update('update contact set telephoneContact = ?, telephoneUrgence=? , email= ?,flagtransmis=? where  idPersonne = ? ',[$telC,$telU,$email,$flagtransmis,$idPatient]);
-        DB::update('update contactUrgence set relation =?,nomRelation = ?, telephoneRelation= ? ,flagtransmis=? where  idPersonne = ? ',[$relation,$Nrelation,$telR,$flagtransmis,$idPatient]);
+        DB::update('update patient set nomPatient = ? ,prenomPatient = ?,numeroIdentitePatient = ? ,uidPatient = ?,statusMatrimonialPatient= ?, dateNaissancePatient = ?, flagTransmis= ? where idPatient = ?',[$nom,$prenom,$numero,$uid,$statut,$date,$flagTransmis,$idPatient]);
+        DB::update('update addresse set premiereAddresse = ?,  idCommune= ?, flagTransmis=? where  idAddresse = ? ',[$adr,$commune,$flagTransmis,$addresse]);
+        DB::update('update contact set telephoneContact = ?, telephoneUrgence=? , email= ?,flagTransmis=? where  idPersonne = ? ',[$telC,$telU,$email,$flagTransmis,$idPatient]);
+        DB::update('update contactUrgence set relation =?,nomRelation = ?, telephoneRelation= ? ,flagTransmis=? where  idPersonne = ? ',[$relation,$Nrelation,$telR,$flagTransmis,$idPatient]);
 
       if (empty($_POST['telephoneContact'])){
 

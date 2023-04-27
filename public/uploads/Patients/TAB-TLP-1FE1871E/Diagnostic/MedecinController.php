@@ -92,7 +92,7 @@ class MedecinController extends Controller
           'dateDeNaissance' => $request->get('dateDeNaissance'),
           'uidMedecin' => $request->get('uidMedecin'),
           'genreMedecin' => $request->get('genreMedecin'),
-          'flagtransmis' => $request->get('flagtransmis'),
+          'flagTransmis' => $request->get('flagTransmis'),
           'photo' => $photo,
           'idAddresse' => $request->get('idAddresse'),
           'statusMatrimonialMedecin' => $request->get('statusMatrimonialMedecin'),
@@ -108,7 +108,7 @@ class MedecinController extends Controller
           'telephoneContact' => $request->get('telephoneContact'),
           'telephoneUrgence' => $request->get('telephoneUrgence'),
           'email' => $request->get('email'),
-          'flagtra\nsmis' => $request->get('flagtransmis'),
+          'flagtra\nsmis' => $request->get('flagTransmis'),
       ]);
       //FIN CONTACT
       //********************************************************
@@ -121,7 +121,7 @@ class MedecinController extends Controller
           'relation' => $request->get('relation'),
           'nomRelation' => $request->get('nomRelation'),
           'telephoneRelation' => $request->get('telephoneRelation'),
-          'flagtransmis' => $request->get('flagtransmis'),
+          'flagTransmis' => $request->get('flagTransmis'),
       ]);
       //FIN CONTACT URGENCE
       //********************************************************
@@ -134,7 +134,7 @@ class MedecinController extends Controller
           'username' => $request->get('username'),
           'password' => sha1($request->get('password')),
           'email' => $request->get('username'),
-          'flagtransmis' => $request->get('flagtransmis'),
+          'flagTransmis' => $request->get('flagTransmis'),
       ]);
       //FIN UTILISATEUR
       //********************************************************

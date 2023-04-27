@@ -95,7 +95,7 @@ class userController extends Controller
             'password' => bcrypt($request->get('password')),
             'privilege' => $request->get('privilege'),
             'image' => $request->get('image'),
-            'flagtransmis' => $request->get('flagtransmis'),
+            'flagTransmis' => $request->get('flagTransmis'),
           ]);
           return redirect()->route('create')->with('success', 'succès, l\'enregistrement s\'est bien effectué.');
         }
@@ -143,7 +143,7 @@ class userController extends Controller
             'password' => bcrypt($request->get('password')),
             'privilege' => $request->get('privilege'),
             'image' => $request->get('image'),
-            'flagtransmis' => $request->get('flagtransmis'),
+            'flagTransmis' => $request->get('flagTransmis'),
           ]);
           return redirect()->route('create')->with('success', 'succès, l\'enregistrement s\'est bien effectué.');
         }

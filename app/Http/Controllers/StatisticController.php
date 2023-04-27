@@ -26,25 +26,25 @@ class StatisticController extends Controller
     public function index($annee)
     {
         $medecin= DB::select('select count(*) as total_medecin from medecin');
-        $patient= DB::select("select count(*) as total_patient, year(flagtransmis) as flagtransmis from patient where year(flagtransmis)='$annee' group by year(flagtransmis)");
-        $consultation= DB::select("select count(*) as total_consultation, year(flagtransmis) as flagtransmis from consultation where year(flagtransmis)='$annee' group by year(flagtransmis)");
+        $patient= DB::select("select count(*) as total_patient, year(flagTransmis) as flagTransmis from patient where year(flagTransmis)='$annee' group by year(flagTransmis)");
+        $consultation= DB::select("select count(*) as total_consultation, year(flagTransmis) as flagTransmis from consultation where year(flagTransmis)='$annee' group by year(flagTransmis)");
         $departement= DB::select('select count(*) as total_departement from departement');
         $maladie= DB::select('select description as malad, description from maladie  ORDER BY malad DESC LIMIT 3');
         
 
         
-        $consultation_graphe= DB::select("select date_format(dateConsultation,'%Y-%m') as mois,count(*) as totalconsult from consultation where year(flagtransmis)='$annee'  group by date_format(dateConsultation,'%Y-%m') 
+        $consultation_graphe= DB::select("select date_format(dateConsultation,'%Y-%m') as mois,count(*) as totalconsult from consultation where year(flagTransmis)='$annee'  group by date_format(dateConsultation,'%Y-%m') 
         order by date_format(dateConsultation,'%Y-%m') asc limit 13");
 
-        $vaccination_graphe= DB::select("select date_format(dateVaccination,'%Y-%m') as mois,count(*) as totalVaccin from vaccinationPatient where year(flagtransmis)='$annee'  group by date_format(dateVaccination,'%Y-%m') 
+        $vaccination_graphe= DB::select("select date_format(dateVaccination,'%Y-%m') as mois,count(*) as totalVaccin from vaccinationPatient where year(flagTransmis)='$annee'  group by date_format(dateVaccination,'%Y-%m') 
         order by date_format(dateVaccination,'%Y-%m') asc limit 13");
 
-        $maladieFrequent= DB::select("select maladie.description as malad, count(diagnostic.idMaladie) as count  from maladie,diagnostic where maladie.idMaladie=diagnostic.idMaladie and year(diagnostic.flagtransmis)='$annee'  group BY malad DESC LIMIT 3");
-        $examenFrequent= DB::select("select typeExamens.typeExamens as exam, count(examen.idExamen) as count  from examen,typeExamens where examen.idTypeExamens=typeExamens.idTypeExamens and year(examen.flagtransmis)='$annee'  group BY exam DESC LIMIT 3");
-        $sanguinFrequent= DB::select("select sanguin.description as sanguin, count(patient.groupeSanguinPatient) as count  from sanguin,patient where patient.groupeSanguinPatient=sanguin.description and year(patient.flagtransmis)='$annee' group BY sanguin DESC LIMIT 3");
+        $maladieFrequent= DB::select("select maladie.description as malad, count(diagnostic.idMaladie) as count  from maladie,diagnostic where maladie.idMaladie=diagnostic.idMaladie and year(diagnostic.flagTransmis)='$annee'  group BY malad DESC LIMIT 3");
+        $examenFrequent= DB::select("select typeExamens.typeExamens as exam, count(examen.idExamen) as count  from examen,typeExamens where examen.idTypeExamens=typeExamens.idTypeExamens and year(examen.flagTransmis)='$annee'  group BY exam DESC LIMIT 3");
+        $sanguinFrequent= DB::select("select sanguin.description as sanguin, count(patient.groupeSanguinPatient) as count  from sanguin,patient where patient.groupeSanguinPatient=sanguin.description and year(patient.flagTransmis)='$annee' group BY sanguin DESC LIMIT 3");
 
 
-  $flag= DB::select("select year(flagtransmis) as year  from consultation  group by year(flagtransmis) desc");
+  $flag= DB::select("select year(flagTransmis) as year  from consultation  group by year(flagTransmis) desc");
           if (empty($flag)) {
              $annee = '2000';
          }else{

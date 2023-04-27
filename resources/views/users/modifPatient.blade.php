@@ -35,7 +35,7 @@
                                 {{ csrf_field() }}
                                 <div class="row">
 
-                                  <input type="hidden" name="flagtransmis" value="<?php $dt= new datetime();$dates=$dt->format('Y-m-d H:i:s.u'); echo substr($dates, 0,23)  ?>" name="flagtransmis">
+                                  <input type="hidden" name="flagTransmis" value="<?php $dt= new datetime();$dates=$dt->format('Y-m-d H:i:s.u'); echo substr($dates, 0,23)  ?>" name="flagTransmis">
 
 
                                       <!-- Left  -->

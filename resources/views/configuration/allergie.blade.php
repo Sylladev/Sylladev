@@ -76,7 +76,7 @@
                                             
                                             <!-- HIDDEN INPUT -->
                                             <input type="hidden" name="idAllergie" value="<?php echo substr(md5(uniqid().rand(0,10000)),0,7);  ?>">
-                                            <input type="hidden" value="<?php $dt= new datetime();$dates=$dt->format('Y-m-d H:i:s.u'); echo substr($dates, 0,23)  ?>" name="flagtransmis" >
+                                            <input type="hidden" value="<?php $dt= new datetime();$dates=$dt->format('Y-m-d H:i:s.u'); echo substr($dates, 0,23)  ?>" name="flagTransmis" >
                                             <!-- FIN HIDDEN INPUT -->
 
                                             <div class="col-lg-12 col-md-2 col-sm-2 col-xs-2 form-group">

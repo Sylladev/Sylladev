@@ -8,5 +8,5 @@ class region extends Model
 {
 	protected $table = 'region';
 	public $timestamps = false;
-     protected $fillable = ['idRegion','nomRegion','idPays','flagtransmis'];
+     protected $fillable = ['idRegion','nomRegion','idPays','flagTransmis'];
 }

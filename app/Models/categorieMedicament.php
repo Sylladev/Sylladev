@@ -8,5 +8,5 @@ class categorieMedicament extends Model
 {
 	protected $table = 'categorieMedicament';
 	public $timestamps = false;
-     protected $fillable = ['idCategorieMedicament','description','flagtransmis'];
+     protected $fillable = ['idCategorieMedicament','description','flagTransmis'];
 }

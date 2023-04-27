@@ -34,7 +34,7 @@
                                                 <input type="text" name="description" value="{{$maladie[0]->description}}" required class="form-control">
                                             </div>
                                             
-                                            <input type="hidden" value="<?php $dt= new datetime();$dates=$dt->format('Y-m-d H:i:s.u'); echo substr($dates, 0,23)  ?>" name="flagtransmis" >
+                                            <input type="hidden" value="<?php $dt= new datetime();$dates=$dt->format('Y-m-d H:i:s.u'); echo substr($dates, 0,23)  ?>" name="flagTransmis" >
 
                                             <div class="col-lg-12 col-md-2 col-sm-2 col-xs-2 form-group">
                                                 <button type="submit" class="btn blue-bgcolor btn-outline m-b-6  btn-circle bouton"><i class="fa fa-pencil"></i> Modifier</button>

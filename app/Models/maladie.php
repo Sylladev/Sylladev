@@ -8,5 +8,5 @@ class maladie extends Model
 {
 	protected $table = 'maladie';
 	public $timestamps = false;
-     protected $fillable = ['idMaladie','description','flagtransmis'];
+     protected $fillable = ['idMaladie','description','flagTransmis'];
 }

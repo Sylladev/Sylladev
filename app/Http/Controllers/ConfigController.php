@@ -70,7 +70,7 @@ class ConfigController extends Controller
       }
       allergie::create([
          'idAllergie' => $request->get('idAllergie'),
-         'flagtransmis' => $request->get('flagtransmis'),
+         'flagTransmis' => $request->get('flagTransmis'),
          'type' => $request->get('type'),
          'description' => $request->get('description'),
       ]);
@@ -101,9 +101,9 @@ class ConfigController extends Controller
       $id = $request->input('idAllergie');
       $type = $request->input('type');
       $description = $request->input('description');
-      $flagtransmis = $request->input('flagtransmis');
+      $flagTransmis = $request->input('flagTransmis');
 
-      DB::update("update allergie set type=?,description=?,flagtransmis=? where idAllergie=?", [$type, $description, $flagtransmis, $id]);
+      DB::update("update allergie set type=?,description=?,flagTransmis=? where idAllergie=?", [$type, $description, $flagTransmis, $id]);
       return redirect()->route('allergie')->with('success', "Cette allergie a été modifiée avec succès");
    }
    // ******************* FIN ALLERGIE *******************
@@ -153,9 +153,9 @@ class ConfigController extends Controller
    {
       $description = $request->input('description');
       $idDepartement = $request->input('idDepartement');
-      $flagtransmis = $request->input('flagtransmis');
+      $flagTransmis = $request->input('flagTransmis');
 
-      DB::update("update departement set description=?,flagtransmis=? where idDepartement=?", [$description, $flagtransmis, $idDepartement]);
+      DB::update("update departement set description=?,flagTransmis=? where idDepartement=?", [$description, $flagTransmis, $idDepartement]);
       return redirect()->route('departement')->with('success', " Departement modifié avec succès !");
    }
    // ******************* FIN DEPARTEMENT *******************
@@ -207,9 +207,9 @@ class ConfigController extends Controller
    {
       $description = $request->input('description');
       $idM = $request->input('idMaladie');
-      $flagtransmis = $request->input('flagtransmis');
+      $flagTransmis = $request->input('flagTransmis');
 
-      DB::update("update maladie set description=?,flagtransmis=? where idMaladie=?", [$description, $flagtransmis, $idM]);
+      DB::update("update maladie set description=?,flagTransmis=? where idMaladie=?", [$description, $flagTransmis, $idM]);
       return redirect()->route('maladie')->with('success', " Maladie modifiée avec succès !");
    }
    // ******************* FIN DEPARTEMENT *******************
@@ -260,9 +260,9 @@ class ConfigController extends Controller
    {
       $description = $request->input('description');
       $idV = $request->input('idVice');
-      $flagtransmis = $request->input('flagtransmis');
+      $flagTransmis = $request->input('flagTransmis');
 
-      DB::update("update vice set description=?, flagtransmis=? where idVice=?", [$description, $flagtransmis, $idV]);
+      DB::update("update vice set description=?, flagTransmis=? where idVice=?", [$description, $flagTransmis, $idV]);
       return redirect()->route('vice')->with('success', " Vice modifié avec succès !");
    }
    // ******************* FIN VICE *******************
@@ -310,9 +310,9 @@ class ConfigController extends Controller
    {
       $description = $request->input('description');
       $idCatSV = $request->input('idCatSV');
-      $flagtransmis = $request->input('flagtransmis');
+      $flagTransmis = $request->input('flagTransmis');
 
-      DB::update("update categorieSigneVitaux set description=?,flagtransmis=? where idCatSV=?", [$description, $flagtransmis, $idCatSV]);
+      DB::update("update categorieSigneVitaux set description=?,flagTransmis=? where idCatSV=?", [$description, $flagTransmis, $idCatSV]);
       return redirect()->route('categoriesignevitaux')->with('success', " Signe vital modifié avec succès !");
    }
    // ******************* FIN CATEGORIE SIGNE VITAUX *******************
@@ -381,9 +381,9 @@ class ConfigController extends Controller
    {
 
       $nom = $request->input('nomRegion');
-      $flagtransmis = $request->input('flagTransmis');
+      $flagTransmis = $request->input('flagTransmis');
 
-      DB::update("update region set nomRegion=?,flagTransmis=? where idRegion=?", [$nom, $flagtransmis, $id]);
+      DB::update("update region set nomRegion=?,flagTransmis=? where idRegion=?", [$nom, $flagTransmis, $id]);
       return redirect()->route('region')->with('edit', " Effectuée");
    }
 
@@ -399,9 +399,9 @@ class ConfigController extends Controller
    {
 
       $nom = $request->input('nomPays');
-      $flagtransmis = $request->input('flagTransmis');
+      $flagTransmis = $request->input('flagTransmis');
 
-      DB::update("update pays set nomPays=?,flagTransmis=? where idPays=?", [$nom, $flagtransmis, $id]);
+      DB::update("update pays set nomPays=?,flagTransmis=? where idPays=?", [$nom, $flagTransmis, $id]);
       return redirect()->route('region')->with('edit', " Effectuée");
    }
    // ******************* FIN REGION *******************
@@ -461,20 +461,20 @@ class ConfigController extends Controller
 
       $stateAPI = DB::select("select * from states where country_id=?",[$country_id]);
       foreach ($stateAPI as $s) {
-         $flagtransmis = date('Y-m-d H:i:s.u');
-        DB::insert("insert into region (idRegion,nomRegion,idPays,flagtransmis)VALUE(?,?,?,?)",[$s->id,$s->name,$s->country_id,$flagtransmis]);
+         $flagTransmis = date('Y-m-d H:i:s.u');
+        DB::insert("insert into region (idRegion,nomRegion,idPays,flagTransmis)VALUE(?,?,?,?)",[$s->id,$s->name,$s->country_id,$flagTransmis]);
       }
 
       $cityAPI = DB::select("select * from cities where country_id=?",[$country_id]);
       foreach ($cityAPI as $c) {
-         $flagtransmis = date('Y-m-d H:i:s.u');
-        DB::insert("insert into commune (idCommune,nomCommune,idRegion,flagtransmis)VALUE(?,?,?,?)",[$c->id,$c->name,$c->state_id,$flagtransmis]);
+         $flagTransmis = date('Y-m-d H:i:s.u');
+        DB::insert("insert into commune (idCommune,nomCommune,idRegion,flagTransmis)VALUE(?,?,?,?)",[$c->id,$c->name,$c->state_id,$flagTransmis]);
       }
 
       $countryAPI = DB::select("select * from countries where id=?",[$country_id]);
       foreach ($countryAPI as $c) {
-         $flagtransmis = date('Y-m-d H:i:s.u');
-        DB::insert("insert into pays (idPays,nomPays,flagtransmis)VALUE(?,?,?)",[$c->id,$c->name,$flagtransmis]);
+         $flagTransmis = date('Y-m-d H:i:s.u');
+        DB::insert("insert into pays (idPays,nomPays,flagTransmis)VALUE(?,?,?)",[$c->id,$c->name,$flagTransmis]);
       }
    
       $hopital = DB::select("select * from hopital");
@@ -701,11 +701,11 @@ class ConfigController extends Controller
    {
 
       $desc = $request->input('description');
-      $flagtransmis = $request->input('flagTransmis');
+      $flagTransmis = $request->input('flagTransmis');
       $cat = $request->input('idCategorieMedicament');
       $id = $request->input('idMedicament');
 
-      DB::update("update medicament set description=?,flagTransmis=?,idCategorieMedicament=? where idMedicament=?", [$desc, $flagtransmis, $cat, $id]);
+      DB::update("update medicament set description=?,flagTransmis=?,idCategorieMedicament=? where idMedicament=?", [$desc, $flagTransmis, $cat, $id]);
       return redirect()->route('medicaments')->with('success', 'Médicament modifié avec success');
    }
 
@@ -724,9 +724,9 @@ class ConfigController extends Controller
 
       $desc = $request->input('description');
       $id = $request->input('idCategorieMedicament');
-      $flagtransmis = $request->input('flagTransmis');
+      $flagTransmis = $request->input('flagTransmis');
 
-      DB::update("update categorieMedicament set description=?,flagTransmis=? where idCategorieMedicament=?", [$desc, $flagtransmis, $id]);
+      DB::update("update categorieMedicament set description=?,flagTransmis=? where idCategorieMedicament=?", [$desc, $flagTransmis, $id]);
       return redirect()->route('categorieMedicaments')->with('success', 'Catégorie médicament modifié avec success');
    }
 
@@ -768,8 +768,8 @@ class ConfigController extends Controller
       $type = $request->input('type');
       $idtypeVaccination = $request->input('idTypeVaccination');
       $duree = $request->input('duree');
-      $flag = $request->input('flagtransmis');
-      DB::update("update typeVaccination set type=?,duree=?,flagtransmis=? where idtypeVaccination=?", [$type, $duree, $flag, $idtypeVaccination]);
+      $flag = $request->input('flagTransmis');
+      DB::update("update typeVaccination set type=?,duree=?,flagTransmis=? where idtypeVaccination=?", [$type, $duree, $flag, $idtypeVaccination]);
       return redirect()->route('vaccination')->with('success', 'Type de vaccin modifié avec succès !');
    }
 

@@ -91,7 +91,7 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <input type="hidden" value="<?php $dt= new datetime();$dates=$dt->format('Y-m-d H:i:s.u'); echo substr($dates, 0,23)  ?>" name="flagtransmis" >
+                                            <input type="hidden" value="<?php $dt= new datetime();$dates=$dt->format('Y-m-d H:i:s.u'); echo substr($dates, 0,23)  ?>" name="flagTransmis" >
 
                                              <div class="form-group row">
                                                 <label class="control-label col-md-3">Image

@@ -27,7 +27,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $flag = DB::select("select year(flagtransmis) as year  from consultation  group by year(flagtransmis) desc Limit 1");
+        $flag = DB::select("select year(flagTransmis) as year  from consultation  group by year(flagTransmis) desc Limit 1");
         if (empty($flag)) {
             $year='2000';
         } else {
@@ -36,13 +36,13 @@ class HomeController extends Controller
         
         $year = date('Y');
        
-        $consultations = count(DB::select("select * from consultation where flagtransmis like '%$year%'"));
+        $consultations = count(DB::select("select * from consultation where flagTransmis like '%$year%'"));
 
         $medecins = count(DB::select("select * from medecin "));
 
-        $patients = count(DB::select("select * from patient where flagtransmis like '%$year%' "));
+        $patients = count(DB::select("select * from patient where flagTransmis like '%$year%' "));
 
-        $patients2 = DB::select("select * from patient where flagtransmis like '%$year%' ");
+        $patients2 = DB::select("select * from patient where flagTransmis like '%$year%' ");
 
         $today = date('Y-m-d');
 
@@ -64,14 +64,14 @@ class HomeController extends Controller
 
         $maladeMale = count(DB::select("select * from patient where flagTransmis like '%$year%' and genrePatient ='M'"));
 
-        $patientsRecents = DB::select("select * from patient order by flagtransmis desc limit 5");
+        $patientsRecents = DB::select("select * from patient order by flagTransmis desc limit 5");
 
-        $medecinsConnecter = DB::select("select DISTINCT(historiquePresence.idMedecin),medecin.prenomMedecin,medecin.nomMedecin,specialite.description,medecin.photo,historiquePresence.flagtransmis from medecin,specialite,historiquePresence where historiquePresence.idMedecin=medecin.idMedecin and medecin.idSpecialite=specialite.idSpecialite and  historiquePresence.description='Login' and historiquePresence.flagtransmis like '%$today%' order by historiquePresence.flagtransmis  desc limit 3");
+        $medecinsConnecter = DB::select("select DISTINCT(historiquePresence.idMedecin),medecin.prenomMedecin,medecin.nomMedecin,specialite.description,medecin.photo,historiquePresence.flagTransmis from medecin,specialite,historiquePresence where historiquePresence.idMedecin=medecin.idMedecin and medecin.idSpecialite=specialite.idSpecialite and  historiquePresence.description='Login' and historiquePresence.flagTransmis like '%$today%' order by historiquePresence.flagTransmis  desc limit 3");
 
     
 
         $a = DB::select("SELECT idMaladie,
-        MAX(flagtransmis) as maj,
+        MAX(flagTransmis) as maj,
         COUNT(*) as total
         FROM diagnostic where diagnostic.flagTransmis like '%$year%'
         GROUP BY idMaladie 
@@ -120,20 +120,20 @@ class HomeController extends Controller
        
        }
 
-        $jan = count(DB::select("select idConsultation from consultation where flagtransmis like '%$year-01%'"));
-        $fev = count(DB::select("select idConsultation from consultation where flagtransmis like '%$year-02%'"));
-        $mar = count(DB::select("select idConsultation from consultation where flagtransmis like '%$year-03%'"));
-        $avr = count(DB::select("select idConsultation from consultation where flagtransmis like '%$year-04%'"));
-        $mai = count(DB::select("select idConsultation from consultation where flagtransmis like '%$year-05%'"));
-        $juin = count(DB::select("select idConsultation from consultation where flagtransmis like '%$year-06%'"));
-        $juil = count(DB::select("select idConsultation from consultation where flagtransmis like '%$year-07%'"));
-        $aout = count(DB::select("select idConsultation from consultation where flagtransmis like '%$year-08%'"));
-        $sep = count(DB::select("select idConsultation from consultation where flagtransmis like '%$year-09%'"));
-        $oct = count(DB::select("select idConsultation from consultation where flagtransmis like '%$year-10%'"));
-        $nov = count(DB::select("select idConsultation from consultation where flagtransmis like '%$year-11%'"));
-        $dec = count(DB::select("select idConsultation from consultation where flagtransmis like '%$year-12%'"));
+        $jan = count(DB::select("select idConsultation from consultation where flagTransmis like '%$year-01%'"));
+        $fev = count(DB::select("select idConsultation from consultation where flagTransmis like '%$year-02%'"));
+        $mar = count(DB::select("select idConsultation from consultation where flagTransmis like '%$year-03%'"));
+        $avr = count(DB::select("select idConsultation from consultation where flagTransmis like '%$year-04%'"));
+        $mai = count(DB::select("select idConsultation from consultation where flagTransmis like '%$year-05%'"));
+        $juin = count(DB::select("select idConsultation from consultation where flagTransmis like '%$year-06%'"));
+        $juil = count(DB::select("select idConsultation from consultation where flagTransmis like '%$year-07%'"));
+        $aout = count(DB::select("select idConsultation from consultation where flagTransmis like '%$year-08%'"));
+        $sep = count(DB::select("select idConsultation from consultation where flagTransmis like '%$year-09%'"));
+        $oct = count(DB::select("select idConsultation from consultation where flagTransmis like '%$year-10%'"));
+        $nov = count(DB::select("select idConsultation from consultation where flagTransmis like '%$year-11%'"));
+        $dec = count(DB::select("select idConsultation from consultation where flagTransmis like '%$year-12%'"));
 
-        $flag = DB::select("select year(flagtransmis) as year  from consultation  group by year(flagtransmis) desc");
+        $flag = DB::select("select year(flagTransmis) as year  from consultation  group by year(flagTransmis) desc");
         
         return view('home.dashboard', compact('a','maladie1','maladie2','maladie3','cas1','cas2','cas3','consultations','flag','patientsEnfant', 'year','medecins', 'patients','maladeFemale','maladeMale','patientsRecents','medecinsConnecter',
          'jan','fev','mar','avr','mai','juin','juil','aout','sep','oct','nov','dec'));
@@ -142,13 +142,13 @@ class HomeController extends Controller
     public function indexFilter($year)
     {
        
-        $consultations = count(DB::select("select * from consultation where flagtransmis like '%$year%'"));
+        $consultations = count(DB::select("select * from consultation where flagTransmis like '%$year%'"));
 
         $medecins = count(DB::select("select * from medecin "));
 
-        $patients = count(DB::select("select * from patient where flagtransmis like '%$year%' "));
+        $patients = count(DB::select("select * from patient where flagTransmis like '%$year%' "));
 
-        $patients2 = DB::select("select * from patient where flagtransmis like '%$year%' ");
+        $patients2 = DB::select("select * from patient where flagTransmis like '%$year%' ");
 
         $today = date('Y-m-d');
 
@@ -170,9 +170,9 @@ class HomeController extends Controller
 
         $maladeMale = count(DB::select("select * from patient where flagTransmis like '%$year%' and genrePatient ='M'"));
 
-        $patientsRecents = DB::select("select * from patient order by flagtransmis desc limit 5");
+        $patientsRecents = DB::select("select * from patient order by flagTransmis desc limit 5");
 
-        $medecinsConnecter = DB::select("select DISTINCT(historiquePresence.idMedecin),medecin.prenomMedecin,medecin.nomMedecin,specialite.description,medecin.photo,historiquePresence.flagtransmis from medecin,specialite,historiquePresence where historiquePresence.idMedecin=medecin.idMedecin and medecin.idSpecialite=specialite.idSpecialite order by historiquePresence.flagtransmis  desc limit 3");
+        $medecinsConnecter = DB::select("select DISTINCT(historiquePresence.idMedecin),medecin.prenomMedecin,medecin.nomMedecin,specialite.description,medecin.photo,historiquePresence.flagTransmis from medecin,specialite,historiquePresence where historiquePresence.idMedecin=medecin.idMedecin and medecin.idSpecialite=specialite.idSpecialite order by historiquePresence.flagTransmis  desc limit 3");
 
         $maladiesFrequentes = DB::select(" 
         select
@@ -186,20 +186,20 @@ class HomeController extends Controller
        
         ");
 
-        $jan = count(DB::select("select idConsultation from consultation where flagtransmis like '%$year-01%'"));
-        $fev = count(DB::select("select idConsultation from consultation where flagtransmis like '%$year-02%'"));
-        $mar = count(DB::select("select idConsultation from consultation where flagtransmis like '%$year-03%'"));
-        $avr = count(DB::select("select idConsultation from consultation where flagtransmis like '%$year-04%'"));
-        $mai = count(DB::select("select idConsultation from consultation where flagtransmis like '%$year-05%'"));
-        $juin = count(DB::select("select idConsultation from consultation where flagtransmis like '%$year-06%'"));
-        $juil = count(DB::select("select idConsultation from consultation where flagtransmis like '%$year-07%'"));
-        $aout = count(DB::select("select idConsultation from consultation where flagtransmis like '%$year-08%'"));
-        $sep = count(DB::select("select idConsultation from consultation where flagtransmis like '%$year-09%'"));
-        $oct = count(DB::select("select idConsultation from consultation where flagtransmis like '%$year-10%'"));
-        $nov = count(DB::select("select idConsultation from consultation where flagtransmis like '%$year-11%'"));
-        $dec = count(DB::select("select idConsultation from consultation where flagtransmis like '%$year-12%'"));
+        $jan = count(DB::select("select idConsultation from consultation where flagTransmis like '%$year-01%'"));
+        $fev = count(DB::select("select idConsultation from consultation where flagTransmis like '%$year-02%'"));
+        $mar = count(DB::select("select idConsultation from consultation where flagTransmis like '%$year-03%'"));
+        $avr = count(DB::select("select idConsultation from consultation where flagTransmis like '%$year-04%'"));
+        $mai = count(DB::select("select idConsultation from consultation where flagTransmis like '%$year-05%'"));
+        $juin = count(DB::select("select idConsultation from consultation where flagTransmis like '%$year-06%'"));
+        $juil = count(DB::select("select idConsultation from consultation where flagTransmis like '%$year-07%'"));
+        $aout = count(DB::select("select idConsultation from consultation where flagTransmis like '%$year-08%'"));
+        $sep = count(DB::select("select idConsultation from consultation where flagTransmis like '%$year-09%'"));
+        $oct = count(DB::select("select idConsultation from consultation where flagTransmis like '%$year-10%'"));
+        $nov = count(DB::select("select idConsultation from consultation where flagTransmis like '%$year-11%'"));
+        $dec = count(DB::select("select idConsultation from consultation where flagTransmis like '%$year-12%'"));
 
-        $flag = DB::select("select year(flagtransmis) as year  from consultation  group by year(flagtransmis) desc");
+        $flag = DB::select("select year(flagTransmis) as year  from consultation  group by year(flagTransmis) desc");
         
         return view('home.dashboard', compact('consultations','flag','patientsEnfant', 'year','medecins', 'patients', 'maladiesFrequentes','maladiesFrequentes','maladeFemale','maladeMale','patientsRecents','medecinsConnecter',
          'jan','fev','mar','avr','mai','juin','juil','aout','sep','oct','nov','dec'));

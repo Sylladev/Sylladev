@@ -8,5 +8,5 @@ class pays extends Model
 {
 	protected $table = 'pays';
 	public $timestamps = false;
-     protected $fillable = ['idPays','nomPays','flagtransmis'];
+     protected $fillable = ['idPays','nomPays','flagTransmis'];
 }

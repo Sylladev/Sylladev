@@ -111,7 +111,7 @@
                                                 </div>
                                                 <input type="hidden" value="<?php $dt = new datetime();
                                                                             $dates = $dt->format('Y-m-d H:i:s.u');
-                                                                            echo substr($dates, 0, 23)  ?>" name="flagtransmis">
+                                                                            echo substr($dates, 0, 23)  ?>" name="flagTransmis">
 
                                                 <div class="form-group col-6">
                                                     <label for="email-id-column">Importer une photo de profile</label>

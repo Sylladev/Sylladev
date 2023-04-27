@@ -8,5 +8,5 @@ class categorieSigneVitaux extends Model
 {
 	protected $table = 'categorieSigneVitaux';
 	public $timestamps = false;
-     protected $fillable = ['idCatSV','description','flagtransmis'];
+     protected $fillable = ['idCatSV','description','flagTransmis'];
 }

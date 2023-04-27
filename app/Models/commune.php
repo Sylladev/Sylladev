@@ -8,5 +8,5 @@ class commune extends Model
 {
 	protected $table = 'commune';
 	public $timestamps = false;
-     protected $fillable = ['idCommune','nomCommune','idRegion','flagtransmis'];
+     protected $fillable = ['idCommune','nomCommune','idRegion','flagTransmis'];
 }

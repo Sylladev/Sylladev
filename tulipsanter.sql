@@ -19311,14 +19311,14 @@ CREATE TABLE `users` (
   `prenom` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `privilege` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `image` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `flagtransmis` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `flagTransmis` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `prenom`, `privilege`, `image`, `flagtransmis`) VALUES
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `prenom`, `privilege`, `image`, `flagTransmis`) VALUES
 (6, 'camara', 'camara@gmail.com', NULL, '$2y$10$hTgJBFQxAHwpJePJaiPYeuwWwm3PhzoeGfmbvWd5HEuvAIC.ZAYfe', NULL, '2021-03-16 15:51:57', '2021-03-19 09:43:06', 'hawa', 'admin', 'achi8.jpg', '2021-03-16 15:51:17.842'),
 (8, 'Diallo', 'rama@gmail.com', NULL, '$2y$10$aQDlcFi/rFmKH.bKiKEzeuA9kjp1IedmMeBnTbUXF4V6CuCJ3OW76', NULL, '2021-03-22 09:25:02', '2021-03-22 09:25:02', 'Ramatoulaye', 'user', 'danssoko.jpg', '2021-03-22 09:24:30.631'),
 (9, 'diallo', 'diallolaw@gmail.com', NULL, '$2y$10$wx4Tn6bVHecZrvtud1aAcuCoEGsSeVyTak4A5peSr983sNWGgXWf2', NULL, '2021-05-04 11:36:44', '2021-05-05 13:17:05', 'oumou', 'admin', '\\images.jpg', '2021-05-04 11:36:07.534'),

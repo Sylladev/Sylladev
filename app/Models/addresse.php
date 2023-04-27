@@ -8,5 +8,5 @@ class addresse extends Model
 {
 	protected $table = 'addresse';
 	public $timestamps = false;
-    protected $fillable = ['idAddresse','premiereAddresse','idCommune','flagtransmis'];
+    protected $fillable = ['idAddresse','premiereAddresse','idCommune','flagTransmis'];
 }

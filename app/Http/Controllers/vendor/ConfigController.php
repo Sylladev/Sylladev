@@ -82,9 +82,9 @@ class ConfigController extends Controller
 
         $type= $request->input('type');
         $description= $request->input('description');
-        $flagtransmis= $request->input('flagtransmis');
+        $flagTransmis= $request->input('flagTransmis');
 
-       DB::update("update allergie set type=?,description=?,flagtransmis=? where idAllergie=?",[$type,$description,$flagtransmis,$id]);
+       DB::update("update allergie set type=?,description=?,flagTransmis=? where idAllergie=?",[$type,$description,$flagTransmis,$id]);
        return redirect()->route('allergie')->with('edit',"Supression Effectuée");
     }
 // ******************* FIN ALLERGIE *******************
@@ -126,9 +126,9 @@ class ConfigController extends Controller
    public function update_departement(Request $request,$id)
     {
         $description= $request->input('description');
-        $flagtransmis= $request->input('flagtransmis');
+        $flagTransmis= $request->input('flagTransmis');
 
-       DB::update("update departement set description=?,flagtransmis=? where idDepartement=?",[$description,$flagtransmis,$id]);
+       DB::update("update departement set description=?,flagTransmis=? where idDepartement=?",[$description,$flagTransmis,$id]);
        return redirect()->route('departement')->with('edit'," Effectuée");
     }  
 // ******************* FIN DEPARTEMENT *******************
@@ -181,9 +181,9 @@ class ConfigController extends Controller
     {
         $description= $request->input('description');
         $type= $request->input('type');
-        $flagtransmis= $request->input('flagtransmis');
+        $flagTransmis= $request->input('flagTransmis');
 
-       DB::update("update maladie set description=?,type=?,flagtransmis=? where idMaladie=?",[$description,$type,$flagtransmis,$id]);
+       DB::update("update maladie set description=?,type=?,flagTransmis=? where idMaladie=?",[$description,$type,$flagTransmis,$id]);
        return redirect()->route('maladie')->with('edit'," Effectuée");
     }
 // ******************* FIN DEPARTEMENT *******************
@@ -225,9 +225,9 @@ class ConfigController extends Controller
    public function update_categorieSigneVitaux(Request $request,$id)
     {
         $description= $request->input('description');
-        $flagtransmis= $request->input('flagtransmis');
+        $flagTransmis= $request->input('flagTransmis');
 
-       DB::update("update categorieSigneVitaux set description=?,flagtransmis=? where idCatSV=?",[$description,$flagtransmis,$id]);
+       DB::update("update categorieSigneVitaux set description=?,flagTransmis=? where idCatSV=?",[$description,$flagTransmis,$id]);
        return redirect()->route('categoriesignevitaux')->with('edit'," Effectuée");
     }  
 // ******************* FIN CATEGORIE SIGNE VITAUX *******************
@@ -272,9 +272,9 @@ class ConfigController extends Controller
     public function update_region(Request $request,$id){
 
         $nom= $request->input('nomRegion');
-        $flagtransmis= $request->input('flagTransmis');
+        $flagTransmis= $request->input('flagTransmis');
 
-       DB::update("update region set nomRegion=?,flagTransmis=? where idRegion=?",[$nom,$flagtransmis,$id]);
+       DB::update("update region set nomRegion=?,flagTransmis=? where idRegion=?",[$nom,$flagTransmis,$id]);
        return redirect()->route('region')->with('edit'," Effectuée");
     }  
 // ******************* FIN REGION *******************
@@ -448,8 +448,8 @@ class ConfigController extends Controller
       $description = $request->input('description');
       $type = $request->input('type');
       $duree = $request->input('duree');
-      $flag = $request->input('flagtransmis');
-      DB::update("update typeVaccination set type=?,duree=?,flagtransmis=? where idtypeVaccination=?",[$type,$duree,$idtypeVaccination,$flag]);
+      $flag = $request->input('flagTransmis');
+      DB::update("update typeVaccination set type=?,duree=?,flagTransmis=? where idtypeVaccination=?",[$type,$duree,$idtypeVaccination,$flag]);
       return redirect()->route('vaccination')->with('update','effectuer avec succes');
 
     }

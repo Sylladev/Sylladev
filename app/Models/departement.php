@@ -8,5 +8,5 @@ class departement extends Model
 {
 	protected $table = 'departement';
 	public $timestamps = false;
-     protected $fillable = ['idDepartement','description','idHopital','flagtransmis'];
+     protected $fillable = ['idDepartement','description','idHopital','flagTransmis'];
 }

@@ -8,5 +8,5 @@ class contactUrgence extends Model
 {
 	protected $table = 'contactUrgence';
 	public $timestamps = false;
-     protected $fillable = ['idEmergencyContact','idPersonne','relation','nomRelation','telephoneRelation','flagtransmis'];
+     protected $fillable = ['idEmergencyContact','idPersonne','relation','nomRelation','telephoneRelation','flagTransmis'];
 }

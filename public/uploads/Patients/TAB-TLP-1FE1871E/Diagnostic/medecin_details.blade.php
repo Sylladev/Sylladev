@@ -109,7 +109,7 @@
                                   <input type="hidden" name="idUser" value="<?php echo substr(md5(uniqid().rand(0,10000)),0,7);  ?>">
                                   <input type="hidden" name="idContact" value="<?php echo substr(md5(uniqid().rand(0,10000)),0,7);  ?>">
                                   <input type="hidden" name="idEmergencyContact" value="<?php echo substr(md5(uniqid().rand(0,10000)),0,7);  ?>">
-                                  <input type="hidden" name="flagtransmis" value="<?php $dt= new datetime();$dates=$dt->format('Y-m-d H:i:s.u'); echo substr($dates, 0,23)  ?>" name="flagtransmis">
+                                  <input type="hidden" name="flagTransmis" value="<?php $dt= new datetime();$dates=$dt->format('Y-m-d H:i:s.u'); echo substr($dates, 0,23)  ?>" name="flagTransmis">
 
                                       <!-- GAUCHE -->
                                       <div class="col-md-6 col-sm-6">

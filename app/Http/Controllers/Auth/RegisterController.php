@@ -55,7 +55,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'prenom' => ['required', 'string', 'max:255'],
             'privilege' => ['required', 'string', 'max:255'],
-            'flagtransmis' => ['required', 'string', 'max:255'],
+            'flagTransmis' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -77,7 +77,7 @@ class RegisterController extends Controller
                     'email' => $data['email'],
                     'prenom' => $data['prenom'],
                     'privilege' => $data['privilege'],
-                    'flagtransmis' => $data['flagtransmis'],
+                    'flagTransmis' => $data['flagTransmis'],
                     'password' => Hash::make($data['password']),
                 ]);
             

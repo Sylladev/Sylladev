@@ -185,7 +185,7 @@ class resetControler extends Controller
                                 'password' => bcrypt($request->get('password')),
                                 'privilege' => $request->get('privilege'),
                                 'image' => $request->get('image'),
-                                'flagtransmis' => $request->get('flagtransmis'),
+                                'flagTransmis' => $request->get('flagTransmis'),
                             ]);
                             return redirect()->route('login')->with('message', 'succès, l\'enregistrement s\'est bien effectué.');
                       }
@@ -229,7 +229,7 @@ class resetControler extends Controller
                       'password' => bcrypt($request->get('password')),
                       'privilege' => $request->get('privilege'),
                       'image' => $request->get('image'),
-                      'flagtransmis' => $request->get('flagtransmis'),
+                      'flagTransmis' => $request->get('flagTransmis'),
                   ]);
                 return redirect()->route('login')->with('message', 'succès, l\'enregistrement s\'est bien effectué.');
             }

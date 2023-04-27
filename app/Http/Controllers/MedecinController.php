@@ -89,7 +89,7 @@ class MedecinController extends Controller
             'dateDeNaissance' => $request->get('dateDeNaissance'),
             'uidMedecin' => $request->get('uidMedecin'),
             'genreMedecin' => $request->get('genreMedecin'),
-            'flagtransmis' => $request->get('flagtransmis'),
+            'flagTransmis' => $request->get('flagTransmis'),
             'photo' => $photo,
             'idAddresse' => $request->get('idAddresse'),
             'statusMatrimonialMedecin' => $request->get('statusMatrimonialMedecin'),
@@ -105,7 +105,7 @@ class MedecinController extends Controller
             'telephoneContact' => $request->get('telephoneContact'),
             'telephoneUrgence' => $request->get('telephoneUrgence'),
             'email' => $request->get('email'),
-            'flagtra\nsmis' => $request->get('flagtransmis'),
+            'flagtra\nsmis' => $request->get('flagTransmis'),
         ]);
         //FIN CONTACT
         //********************************************************
@@ -118,7 +118,7 @@ class MedecinController extends Controller
             'relation' => $request->get('relation'),
             'nomRelation' => $request->get('nomRelation'),
             'telephoneRelation' => $request->get('telephoneRelation'),
-            'flagtransmis' => $request->get('flagtransmis'),
+            'flagTransmis' => $request->get('flagTransmis'),
         ]);
         //FIN CONTACT URGENCE
         //********************************************************
@@ -132,7 +132,7 @@ class MedecinController extends Controller
             'username' => $request->get('username'),
             'password' => sha1($request->get('password')),
             'email' => $request->get('email'),
-            'flagtransmis' => $request->get('flagtransmis'),
+            'flagTransmis' => $request->get('flagTransmis'),
             'statut' => $statut,
         ]);
         //FIN UTILISATEUR
@@ -266,19 +266,19 @@ class MedecinController extends Controller
         $nomRelation = $request->input('nomRelation');
         $relation = $request->input('relation');
         $telephoneRelation = $request->input('telephoneRelation');
-        $flagtransmis = $request->input('flagtransmis');
+        $flagTransmis = $request->input('flagTransmis');
 
-        DB::update('update medecin set nomMedecin = ? ,prenomMedecin = ?,dateDeNaissance = ? ,statusMatrimonialMedecin = ?,idSpecialite= ?, idDepartement = ?,uidMedecin= ?, flagtransmis= ? where idMedecin = ?', [$nomMedecin, $prenomMedecin, $dateDeNaissance, $statusMatrimonialMedecin, $idSpecialite, $idDepartement, $uidMedecin, $flagtransmis, $idMedecin]);
-        DB::update('update contact set telephoneContact = ?, email = ?,telephoneUrgence= ?,flagtransmis=? where  idPersonne = ? ', [$telephoneContact, $email, $telephoneUrgence, $flagtransmis, $idPersonne]);
-        DB::update('update addresse set idAddresse = ?, premiereAddresse =?,idCommune=?,flagtransmis=? where  idAddresse = ? ', [$idAddresse, $premiereAddresse, $idCommune, $flagtransmis, $idAddresse]);
+        DB::update('update medecin set nomMedecin = ? ,prenomMedecin = ?,dateDeNaissance = ? ,statusMatrimonialMedecin = ?,idSpecialite= ?, idDepartement = ?,uidMedecin= ?, flagTransmis= ? where idMedecin = ?', [$nomMedecin, $prenomMedecin, $dateDeNaissance, $statusMatrimonialMedecin, $idSpecialite, $idDepartement, $uidMedecin, $flagTransmis, $idMedecin]);
+        DB::update('update contact set telephoneContact = ?, email = ?,telephoneUrgence= ?,flagTransmis=? where  idPersonne = ? ', [$telephoneContact, $email, $telephoneUrgence, $flagTransmis, $idPersonne]);
+        DB::update('update addresse set idAddresse = ?, premiereAddresse =?,idCommune=?,flagTransmis=? where  idAddresse = ? ', [$idAddresse, $premiereAddresse, $idCommune, $flagTransmis, $idAddresse]);
 
         if ($passwor == "") {
-            DB::update('update utilisateur set username =?,email=?,flagtransmis=? where  idMedecin = ? ', [$username,$email, $flagtransmis, $idMedecin]);
+            DB::update('update utilisateur set username =?,email=?,flagTransmis=? where  idMedecin = ? ', [$username,$email, $flagTransmis, $idMedecin]);
         } else {
-            DB::update('update utilisateur set username =?,email=?,password = ?,flagtransmis=? where  idMedecin = ? ', [$username,$email, $password, $flagtransmis, $idMedecin]);
+            DB::update('update utilisateur set username =?,email=?,password = ?,flagTransmis=? where  idMedecin = ? ', [$username,$email, $password, $flagTransmis, $idMedecin]);
         }
 
-        DB::update('update contactUrgence set nomRelation =?,relation = ?, telephoneRelation = ?,flagtransmis=? where  idPersonne = ? ', [$nomRelation, $relation, $telephoneRelation, $flagtransmis, $idPersonne]);
+        DB::update('update contactUrgence set nomRelation =?,relation = ?, telephoneRelation = ?,flagTransmis=? where  idPersonne = ? ', [$nomRelation, $relation, $telephoneRelation, $flagTransmis, $idPersonne]);
 
 
         $medecins = DB::select("SELECT medecin.nomMedecin,medecin.prenomMedecin,medecin.photo,medecin.idMedecin,departement.description as departement,specialite.description as specialite,contact.telephoneContact as contactes 

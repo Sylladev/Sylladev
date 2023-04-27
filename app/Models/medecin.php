@@ -8,5 +8,5 @@ class medecin extends Model
 {
 	protected $table = 'medecin';
 	public $timestamps = false;
-    protected $fillable = ['idMedecin','idSpecialite','idDepartement','nomMedecin','prenomMedecin','genreMedecin','dateDeNaissance','uidMedecin','flagtransmis','photo','idAddresse','statusMatrimonialMedecin'];
+    protected $fillable = ['idMedecin','idSpecialite','idDepartement','nomMedecin','prenomMedecin','genreMedecin','dateDeNaissance','uidMedecin','flagTransmis','photo','idAddresse','statusMatrimonialMedecin'];
 }

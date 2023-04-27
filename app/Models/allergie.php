@@ -8,5 +8,5 @@ class allergie extends Model
 {
 	protected $table = 'allergie';
 	public $timestamps = false;
-     protected $fillable = ['idAllergie','type','description','flagtransmis'];
+     protected $fillable = ['idAllergie','type','description','flagTransmis'];
 }
