@@ -222,7 +222,7 @@
                                             </div>
                                             <div class="col-md-6 col-12">
                                                 <div class="form-group mandatory">
-                                                    <label class="form-label">Commune</label>
+                                                    <label class="form-label">Regions</label>
                                                     <select class="form-select" name="idCommune" required>
                                                         <option value="{{$medecinUpdate[0]->idCommune}}">( {{$medecinUpdate[0]->nomCommune}} )</option>
                                                         @foreach($commune as $key => $com)

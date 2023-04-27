@@ -67,7 +67,7 @@
                                             <input type="hidden" name="idTypeExamens" value="<?php echo substr(md5(uniqid().rand(0,10000)),0,7);  ?>">
                                             <input type="hidden" value="<?php $dt = new datetime();
                                                                         $dates = $dt->format('Y-m-d H:i:s.u');
-                                                                        echo substr($dates, 0, 23)  ?>" name="flagtransmis">
+                                                                        echo substr($dates, 0, 23)  ?>" name="flagTransmis">
                                             <!-- FIN HIDDEN INPUT -->
                                             <div class="col-md-12">
                                                 <div class="form-group mandatory">
@@ -139,7 +139,7 @@
                             <form class="form" data-parsley-validate method="POST" action="{{ route('update_examen') }}" enctype="multipart/form-data">
                                 @csrf
                                 <!-- HIDDEN INPUT -->
-                                <input type="hidden" value="<?php $dt = new datetime();$dates = $dt->format('Y-m-d H:i:s.u');echo substr($dates, 0, 23)  ?>" name="flagtransmis">
+                                <input type="hidden" value="<?php $dt = new datetime();$dates = $dt->format('Y-m-d H:i:s.u');echo substr($dates, 0, 23)  ?>" name="flagTransmis">
                                 <!-- FIN HIDDEN INPUT -->
                                 <div class="col-md-12">
                                     <div class="form-group mandatory">

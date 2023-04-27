@@ -124,7 +124,7 @@
                                                 </div>
                                                 <div class="col-md-6 col-12">
                                                     <div class="form-group mandatory">
-                                                        <label class="form-label">Commune</label>
+                                                        <label class="form-label">Regions</label>
                                                         <select class="form-select" name="idCommune" required>
                                                             <option></option>
                                                             @foreach($commune as $key => $com)

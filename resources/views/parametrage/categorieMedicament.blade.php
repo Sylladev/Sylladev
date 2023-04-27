@@ -65,7 +65,7 @@
                                             <!-- HIDDEN INPUT -->
                                             <input type="hidden" value="<?php $dt = new datetime();
                                                                         $dates = $dt->format('Y-m-d H:i:s.u');
-                                                                        echo substr($dates, 0, 23)  ?>" name="flagtransmis">
+                                                                        echo substr($dates, 0, 23)  ?>" name="flagTransmis">
                                             <!-- FIN HIDDEN INPUT -->
                                             <div class="col-md-12">
                                                 <div class="form-group mandatory">
@@ -140,7 +140,7 @@
                                 @csrf
                                 <!-- HIDDEN INPUT -->
                                 <input type="hidden" name="idCategorieMedicament" id="idCategorieMedicament">
-                                <input type="hidden" value="<?php $dt = new datetime();$dates = $dt->format('Y-m-d H:i:s.u');echo substr($dates, 0, 23)  ?>" name="flagtransmis">
+                                <input type="hidden" value="<?php $dt = new datetime();$dates = $dt->format('Y-m-d H:i:s.u');echo substr($dates, 0, 23)  ?>" name="flagTransmis">
                                 <!-- FIN HIDDEN INPUT -->
                                 <div class="col-md-12">
                                     <div class="form-group mandatory">
