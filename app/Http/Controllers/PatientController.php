@@ -15,7 +15,7 @@ class PatientController extends Controller
      */
     public function patients()
     {
-        $patients = DB::select("select * from patient,addresse,contact where patient.idAddresse=addresse.idAddresse and contact.idPersonne=patient.idPatient order by patient.idPatient DESC LIMIT 100");
+        $patients = DB::select("select * from patient,addresse,contact where patient.idAddresse=addresse.idAddresse and contact.idPersonne=patient.idPatient order by patient.flagTransmis DESC LIMIT 100");
         return view('patients.patients_liste',compact('patients'));
     }
 

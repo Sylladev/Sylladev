@@ -15,9 +15,9 @@ class examensController extends Controller
      */
     public function liste()
     {
-        $examens = DB::select("select idExamen,idConsultation,valeur,examen.flagTransmis,typeExamens.typeExamens from examen,typeExamens where examen.idTypeExamens = typeExamens.idTypeExamens and examen.idExamen NOT IN(select idExamen from examenDetaille) order by examen.idExamen DESC LIMIT 12");
+        $examens = DB::select("select idExamen,idConsultation,valeur,examen.flagTransmis,typeExamens.typeExamens from examen,typeExamens where examen.idTypeExamens = typeExamens.idTypeExamens and examen.valeur like '%/%' order by examen.idExamen DESC LIMIT 12");
 
-        $examensDetails = DB::select("select * from examen,typeExamens where examen.idTypeExamens = typeExamens.idTypeExamens and examen.idExamen IN(select idExamen from examenDetaille) order by examen.idExamen DESC LIMIT 100");
+        $examensDetails = DB::select("select * from examen,typeExamens where examen.idTypeExamens = typeExamens.idTypeExamens and examen.idExamen in(select idExamen from examenDetaille) order by examen.idExamen DESC LIMIT 100");
        
         $ekg = DB::select("select * from ekgFichier order by idEkgFichier DESC LIMIT 12");
 

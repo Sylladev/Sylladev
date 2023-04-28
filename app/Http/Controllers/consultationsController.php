@@ -14,7 +14,7 @@ class consultationsController extends Controller
      */
     public function liste()
     {
-        $consultations = DB::select("select * from consultation,medecin,patient where consultation.idMedecin = medecin.idMedecin and consultation.idPatient=patient.idPatient order by consultation.idConsultation DESC LIMIT 100");
+        $consultations = DB::select("select * from consultation,medecin,patient where consultation.idMedecin = medecin.idMedecin and consultation.idPatient=patient.idPatient order by consultation.dateConsultation DESC LIMIT 100");
         
         return view('consultations.consultations_liste',compact('consultations'));
     
@@ -38,11 +38,11 @@ class consultationsController extends Controller
         $reference1 = DB::select("select * from reference,medecin where reference.idMedecin1 = medecin.idMedecin and reference.idConsultation=? LIMIT 1",[$id]);
         $reference2 = DB::select("select * from reference,medecin where reference.idMedecin2 = medecin.idMedecin and reference.idConsultation=? LIMIT 1",[$id]);
 
-        $ekg = DB::select("select * from ekgFichier order by idEkgFichier DESC LIMIT 12");
+        $ekg = DB::select("select * from ekgFichier where idConsultation=? order by idEkgFichier DESC LIMIT 12",[$id]);
 
-        $examens = DB::select("select idExamen,idConsultation,valeur,examen.flagTransmis,typeExamens.typeExamens from examen,typeExamens where examen.idTypeExamens = typeExamens.idTypeExamens  and examen.idExamen NOT IN(select idExamen from examenDetaille) and examen.idConsultation=? order by examen.idExamen DESC LIMIT 12",[$id]);
+        $examens = DB::select("select * from examen,typeExamens where examen.idTypeExamens = typeExamens.idTypeExamens and  examen.valeur like '%/%' and examen.idConsultation=? order by examen.idExamen DESC LIMIT 12",[$id]);
 
-        $examensDetails = DB::select("select * from examen,typeExamens where examen.idTypeExamens = typeExamens.idTypeExamens and examen.idExamen IN(select idExamen from examenDetaille) and examen.idConsultation=? order by examen.idExamen DESC LIMIT 100",[$id]);
+        $examensDetails = DB::select("select * from examen,typeExamens where examen.idTypeExamens = typeExamens.idTypeExamens and examen.idExamen in(select idExamen from examenDetaille) and examen.idConsultation=? order by examen.idExamen DESC LIMIT 100",[$id]);
 
         return view('consultations.consultations_details',compact('ekg','signesVitaux','consultation','prescriptions','descriptionConsultation','conseils','diagnostics','examens','examensDetails','vaccination','symptome','reference1','reference2'));
         

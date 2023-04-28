@@ -10,17 +10,17 @@
 
 </head>
 
-<body>
+<body style="background-color: white;">
     <div id="app">
         <div id="error">
         
 
         <div class="error-page container">
             <div class="col-md-8 col-12 offset-md-2">
-                <div class="text-center">
-                    <img class="img-error" src="{{asset('assets/assets/images/support.jpg')}}" style="height: 30em;" alt="Not Found">
-                    <h1 class="error-title"><i class="fa fa-phone"></i> Contact : 660 00 00 01 / 660 00 00 02</h1>
-                    <h1 class="error-title"><i class="fa fa-envelope"></i> Email : tulipsantes@gmail.com</h1>
+                <div class="text-center" style="padding-top: 25%;">
+                    <img class="img-error" src="{{asset('assets/assets/images/support.jpg')}}" style="height: 12em;" alt="Not Found" style="margin-bottom:15px">
+                    <h4 class="error-title"><i class="fa fa-phone"></i> Contact : 660 00 00 01 / 660 00 00 02</h4>
+                    <h4 class="error-title"><i class="fa fa-envelope"></i> Email : tulipsantes@gmail.com</h4>
                     <p class="fs-5 text-gray-600">Appelez notre service d'assistance pour vous aider.</p>
                 </div>
             </div>
